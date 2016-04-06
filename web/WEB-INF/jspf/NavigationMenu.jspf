@@ -1,0 +1,43 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="java.text.DateFormat"%>
+<!DOCTYPE html>
+<%@page import="java.util.*,dao.*,domain.*" %>
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <title>Home</title>
+   </head>
+   <body>
+      <% // get the locale from the request, which will be 
+         //determined by the language set.
+      Locale locale = request.getLocale();
+      // load the bundle for the preferred locale
+      ResourceBundle bundle =
+              ResourceBundle.getBundle("i18n/Bundle", locale);
+      DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, locale);
+      String dateOut = dateFormatter.format(new Date());
+      %>
+      
+      <%
+      Customer cust = (Customer)session.getAttribute("customer");
+      %>
+       
+      <% if(cust != null){ %>
+      <p id="hello">Hello <%=cust.getName() %></p>
+      <div class="nav">
+         <a href="/shopping/index.jsp"><%=bundle.getString("HOME")%></a>
+        <a href="/shopping/restricted/ViewProducts.jsp"><%=bundle.getString("VIEWPRODUCT")%></a>
+        <a href="/shopping/restricted/Checkout.jsp"><%=bundle.getString("CHECKOUT")%></a>
+        <a href="/shopping/LogoutServlet"><%=bundle.getString("LOGOUT")%></a>
+      </div>
+      <% } else { %>
+      <div class="nav">
+      <a href="/shopping"><%=bundle.getString("HOME")%></a>
+      <a href="/shopping/login.jsp"><%=bundle.getString("LOGIN")%></a>
+      <a href="/shopping/addnewcustomer.jsp"><%=bundle.getString("CREATEACCOUNT")%></a>
+      </div>
+      <% } %>
+      
+      
+   </body>
+</html>

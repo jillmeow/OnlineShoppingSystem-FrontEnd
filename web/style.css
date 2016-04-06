@@ -1,0 +1,60 @@
+@import url("forms.css");  /* import forms layout */
+
+body		{
+	color: #FFFFFF;
+	background-color: #000000;
+	margin: 0 auto;
+      font-family: Tahoma;
+      width: 900px;
+      height: 100%;
+      
+}
+h1	{
+	text-align: center;
+	background-color: lightgray;
+      color: slateblue;
+      margin: 0px;
+}
+
+h2{
+   text-align: center;
+   background-color: mediumpurple;
+   margin: 0px;
+   font-size:large;
+}
+
+table	{
+	margin-left: auto;
+	margin-right: auto;
+}
+th{
+   border-bottom: 1px solid white;
+}
+
+fieldset	{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav	{
+	text-align: right;
+      background-color: #FFFFFF
+     
+}
+
+a   {
+   color: black;
+}
+#hello{
+   padding: 0px;
+   border-bottom: 1px solid white;
+}
+
+#login{
+   width:17em;
+}
+.nav{
+   text-align: center;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}

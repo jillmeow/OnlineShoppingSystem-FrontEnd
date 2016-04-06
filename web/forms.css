@@ -1,0 +1,57 @@
+/*
+
+Two column form layout, with right aligned labels.
+
+This has been tested with all major browsers.  It does NOT work with versions of
+Internet Explorer prior to 8.
+
+If font family and size is fixed then the forms should look the same in all
+browsers.
+
+The HTML to use this layout should use the following structure:
+
+<form>
+   <fieldset>
+      <legend>legend</legend>
+      <label>Label 1:<input type="text"></label>
+      <label>Label 2:<input type="text"></label>
+      <button type="submit">Submit</button>
+   </fieldset>
+</form>
+
+The labels surround the input components to ensure they stay together.
+
+Oversized labels will break the layout so resize the fieldsets to suit.
+
+Author:  Mark George <mgeorge@infoscience.otago.ac.nz>
+
+*/
+
+fieldset {
+   width: 20em;      /* effective width of field set */
+   padding: 10px;    /* padding to space the components from the fieldset border */
+   padding-top: 0px; /* IE counts the top of the legend as the top of the fieldset meaning backgound color also covers the legend.  padding-top makes this effect worse so set it to 0. */
+}
+
+fieldset label, fieldset input, fieldset textarea, fieldset select {
+   vertical-align: middle; /* ensure labels and input components are vertically centred */
+   margin-top: 4px;        /* add some spacing between form 'rows' */
+   margin-bottom: 4px;     /*  add some spacing between form 'rows' */
+}
+
+fieldset label {
+   text-align: right;    /* align the label text right */
+   display: block;       /* make the label represent a single row in the layout */
+}
+
+fieldset input, fieldset textarea, fieldset select {
+   width: 150px;       /* width of the form components */
+   margin-left: 5px;   /* add some spacing between the label and the component */
+}
+
+fieldset *[type="submit"], fieldset *[type="reset"] {
+   margin: auto;     /* restore margin for submit/reset buttons */
+   margin-top: 5px;  /* add some top margin to space submit button from rest of form */
+   width: 100%;      /* make submit buttons full width */
+}
+
